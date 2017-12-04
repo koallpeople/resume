@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="个人简历，前端工程师简历,jquery"/>
+    <meta name="description" content="个人简历，前端工程师简历"/>
+    <meta name="author" content="www"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/jquery.fullPage.css"/>
+    <title>resume</title>
+
+</head>
+<body>
+<div id="header">header</div>
+<!--<ul id="fullpageMenu">-->
+    <!--<li data-menuanchor="page1" class="active"><a href="#page1">page1</a></li>-->
+    <!--<li data-menuanchor="page2"><a href="#page2">page2</a></li>-->
+    <!--<li data-menuanchor="page3"><a href="#page3">page3</a></li>-->
+    <!--<li data-menuanchor="page4"><a href="#page4">page4</a></li>-->
+    <!--<li data-menuanchor="page5"><a href="#page5">page5</a></li>-->
+<!--</ul>-->
+
+<div id="fullpage">
+    <div class="section section1">
+
+        <div class="img-box"></div>
+        <div class="txt-box">
+            <p>尉玮玮</p>
+            <p>职业：web前端工程师</p>
+            <p>写代码并不难，难的是如何写出优雅的代码</p>
+            <div id="demo">111</div>
+        </div>
+        <div class="s"></div>
+        <div></div>
+    </div>
+    <div class="section">2</div>
+    <div class="section">3</div>
+    <div class="section">4</div>
+    <div class="section">5</div>
+</div>
+
+<script src="javascript/jquery-3.1.0.min.js"></script>
+<script src="javascript/jquery.fullPage.min.js"></script>
+<script src="javascript/move.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#fullpage').fullpage({
+//            sectionsColor:["red","blue","","yellow",""],   //为每一个section设置背景颜色
+            verticalCentered:false,   //内容是否垂直居中，默认true
+            resize:false,            //字体是否随页面缩放，默认false
+            scrollingSpeed:700,      //设置页面滚动的速度，默认700
+            anchors:["page1","page2","page3","page4","page5"],    //定义锚链接，默认[]，用户可以快速打开某一页面，用active可以定义默认首次加载当前页面
+            paddingTop:0,            //设置section顶部的padding
+            paddingBottom:0,         //设置section底部的padding
+            fixedElements:'#header', //固定元素，默认null，在页面定义#header，配合position：fixed使用
+            touchSensitivity: 6,     //移动设备中滑动页面的敏感性，默认5，值越大，越难滑动
+            continuousVertical:true, //页面是否循环滚动，默认false，和loopTop和loopBottom不能同时用，不是跳动
+            animateAnchor:true,      //锚链接是否可以控制滚动动画，默认true
+            recordHistory:true,      //是否记录历史，默认true，可以通过浏览器前进后退来导航
+            menu:'#fullpageMenu',    //绑定菜单，设置相关属性与anchors的值对应后，菜单可以控制滚动
+            navigation:true,         //是否显示导航，默认false
+            navigationPosition:'right',   //导航小圆点的位置
+            navigationTooltips:['page1','page2','page3','page4','page5'],   //鼠标悬浮导航小圆点出现的内容
+
+        });
+
+    })
+</script>
+<script type="text/javascript">
+    if (localStorage.pagecount)
+    {
+        localStorage.pagecount=Number(localStorage.pagecount) +1;
+    }
+    else
+    {
+        localStorage.pagecount=1;
+    }
+    document.getElementById("demo").innerHTML= localStorage.pagecount
+</script>
+</body>
+</html>
